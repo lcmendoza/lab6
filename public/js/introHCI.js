@@ -12,7 +12,8 @@ function initializePage() {
 	$('.project a').click(addProjectDetails);
 
 	// $('#colorBtn').click(randomizeColors);
-}
+} 
+
 
 function addProject(result) {
   var projectHTML =  
@@ -35,7 +36,7 @@ function callBackFunction(result) {
 /*
  * Make an AJAX call to retrieve project details and add it in
  */
- 
+
 function addProjectDetails(e) {
 	// Prevent following the link
 	e.preventDefault();

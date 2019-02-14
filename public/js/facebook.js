@@ -4,11 +4,13 @@ function checkLoginState() {
   });
 }
 
+
 function changeUser(response) {
   $('.facebookLogin').hide();
   $('#name').text(response.name);
   $('#photo').attr('src', response.picture.data.url);
-}
+} 
+
 
 function statusChangeCallback(response) {
   console.log('Facebook login status changed.');
