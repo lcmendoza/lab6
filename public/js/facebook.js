@@ -4,6 +4,12 @@ function checkLoginState() {
   });
 }
 
+function changeUser(response) {
+  $('.facebookLogin').hide();
+  $('#name').text(response.name);
+  $('#photo').attr('src', response.picture.data.url);
+}
+
 function statusChangeCallback(response) {
   console.log('Facebook login status changed.');
   console.log(response);
@@ -16,10 +22,4 @@ function statusChangeCallback(response) {
         console.log('Successfully logged in with Facebook');
          FB.api('/me?fields=name,first_name,picture.width(480)', changeUser);
   }
-}
-
-function changeUser(response) {
-  $('.facebookLogin').hide();
-  $('#name').text(response.name);
-  $('#photo').attr('src', response.picture.data.url);
 }
