@@ -14,6 +14,25 @@ function initializePage() {
 	// $('#colorBtn').click(randomizeColors);
 }
 
+
+function addProject(result) {
+  var projectLayout = '<img src="' + 
+  	result['image'] + 
+  	'"class="detailsImage">' +
+    '<p>' + result['title'] + '</p>' +
+    '<p>' + result['date'] + '</p>' +
+    '<p>' + result['summary'] +'</p>';
+  return projectLayout;
+}
+
+function callBackFunction(result) {
+	console.log(result);
+	var id = "#project" + result.id;
+	var details = ";"
+	$(id).find('.details').html(addProject(result));
+}
+
+
 /*
  * Make an AJAX call to retrieve project details and add it in
  */
@@ -27,4 +46,9 @@ function addProjectDetails(e) {
 	var idNumber = projectID.substr('project'.length);
 
 	console.log("User clicked on project " + idNumber);
+
+	var url = "/project/" + idNumber;
+	console.log(url);
+	
+	$.get(url, callBackFunction);
 }
